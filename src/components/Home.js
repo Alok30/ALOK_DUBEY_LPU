@@ -48,7 +48,7 @@ export default class Home extends Component {
                           <h5 className="card-title font_color">Port No:{device.port_no}</h5>
                           <p className="float-right text-success font_color">
                        
-                          
+                            
                           
                          
                                                

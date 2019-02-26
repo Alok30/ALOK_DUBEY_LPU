@@ -1,10 +1,17 @@
-.table{
-    width: 1214px;
-    height: 31px;
-    height: 31px;
-    left: 39px;
-    top: 177px;
-    right: 1253px;
-    bottom: 208px;
-    position: relative;
-}
+
+
+.navStyle{
+    color:black;
+    font: 100px;
+ }
+ .marginLeft{
+    margin-left: 86px;
+ }
+ .marginInBetween{
+    margin-left: 54px;
+ }
+ .styleLink:hover{
+    color:green !important;
+    background-color: white !important;
+    border-bottom: 3px solid green;
+ }

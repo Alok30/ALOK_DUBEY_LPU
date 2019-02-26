@@ -48,11 +48,11 @@ export default class deviceLandingScreen extends Component {
                           <p >
                        
                           
-                          
+                        
                          
                                                
-                       <Link to={`/${device.ip_address}/${device.devices[0].device_name}`} component={DeviceName}>{device.ip_address}</Link>
-                                                
+                       <Link to={`/${device.devices[0].host_ip}/${device.devices[0].device_name}`} component={DeviceName}>{device.devices[0].host_ip}</Link>
+                                              
                         </p>
                         </div>
                       </div>

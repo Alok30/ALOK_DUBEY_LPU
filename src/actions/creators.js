@@ -68,10 +68,11 @@ function getDeviceDetailsThunk(id){
 
         }
 }
-function getDeviceName(device_name){
+function getDeviceName(host_ip,device_name){
     return{
       type:Constants.FETCH_DEVICE_NAME,
       payload:{
+          host_ip:host_ip,
           device_name:device_name
       }
     }
@@ -94,18 +95,63 @@ function getDeviceNameFailure(error){
 
     }
 }
-function getDeviceNameThunk(device_name){
+function getDeviceNameThunk(host_ip,device_name){
     return function(dispatch){
-        dispatch(getDeviceName(device_name))
-        deviceList.getDeviceName(device_name)
+        dispatch(getDeviceName(host_ip,device_name))
+        deviceList.getDeviceName(host_ip,device_name)
         .then(device=>dispatch(getDeviceNameSuccess(device)))
         .catch(error=>dispatch(getDeviceDetailsFailure(error)));
     }
 }
+function postPort(data){
+    return {
+        type:Constants.POST_PORT_NUMBER,
+        payload:{
+            data:data
+        }
+    }
+}
+function postPortSuccess(data){
+    return{
+        type:Constants.POST_PORT_NUMBER_SUCCESS,
+        payload:{
+            data:data
+        }
+    }
+}
+function postPortFailure(error){
+    return{
+        type:Constants.POST_PORT_NUMBER_FAILURE,
+        payload:{
+            error:error
+        }
+    }
+}
+function postPortUpdate(form){
+   return{
+       type:Constants.POST_PORT_FORM_UPDATE,
+       payload:{
+           form:form
+       }
+   
+   
+    }
+}
+function postPortThunk(data){
+    return function(dispatch){
+        dispatch(postPort(data))
+        deviceList.postPort(data)
+        .then(data=>dispatch(postPortSuccess(data)))
+        .catch(error=>dispatch(postPortFailure(error)));
+    }
+
+
+}
+
+
+
 export {
 
-
-    getDevice,
     getDeviceSuccess,
     getDeviceFailure,
     getDeviceThunk,
@@ -116,7 +162,12 @@ export {
     getDeviceName,
     getDeviceNameSuccess,
     getDeviceNameFailure,
-    getDeviceNameThunk
+    getDeviceNameThunk,
+    postPort,
+    postPortSuccess,
+    postPortFailure,
+    postPortUpdate,
+    postPortThunk
 
   
     
