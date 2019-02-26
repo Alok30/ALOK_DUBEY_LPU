@@ -1,0 +1,27 @@
+{
+    "message": "list of host machines.",
+    "status": [
+        {
+            "_id": {
+                "$oid": "5c712660136c71254e14bc4b"
+            },
+            "host_name": "hostname1",
+            "ip_address": "127.0.0.35"
+        },
+        {
+            "_id": {
+                "$oid": "5c73831d136c7124df25e208"
+            },
+            "host_name": "hostname36",
+            "ip_address": "127.0.0.36"
+        },
+        {
+            "_id": {
+                "$oid": "5c738325136c7124df25e209"
+            },
+            "host_name": "hostname37",
+            "ip_address": "127.0.0.37"
+        }
+    ]
+    073c7521da74911a4d12
+}

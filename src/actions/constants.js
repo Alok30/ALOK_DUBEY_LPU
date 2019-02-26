@@ -1,0 +1,11 @@
+export const FETCH_DATA=1;
+export const FETCH_DATA_SUCCESS=2;
+export const FETCH_DATA_FAILURE=3;
+
+export const FETCH_DEVICE_LANDING=4;
+export const FETCH_DEVICE_LANDING_SUCCESS=5;
+export const FETCH_DEVICE_LANDING_FAILURE=6;
+
+export const FETCH_DEVICE_NAME=7;
+export const FETCH_DEVICE_NAME_SUCCESS=8;
+export const FETCH_DEVICE_NAME_FAILURE=9;

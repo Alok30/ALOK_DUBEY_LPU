@@ -1,0 +1,17 @@
+.card_color{
+    width:392px;
+    height:110px;
+    left:45px;
+    top:85px;
+    right: 437px;
+    bottom: 195px;
+}
+.font_color{
+ font-family: "Open Sans", open-sans, sans-serif;
+ font-size: 12px;
+ font-weight: 400;
+ height: 17px;
+ color: rgb(95, 105, 122);
+ 
+
+}

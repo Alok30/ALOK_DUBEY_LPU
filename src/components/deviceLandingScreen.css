@@ -1,0 +1,15 @@
+.container_css{
+    width: 1199px;
+    height: 62px;
+    left: 43px;
+    top: 79px;
+    right: 1242px;
+    bottom:141px;
+}
+.previous {
+    float: left;
+    }
+    
+.next {
+    float: right;
+}
