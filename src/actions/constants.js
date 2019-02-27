@@ -15,3 +15,8 @@ export const POST_PORT_NUMBER=10;
 export const POST_PORT_NUMBER_SUCCESS=11;
 export const POST_PORT_NUMBER_FAILURE=12;
 export const POST_PORT_FORM_UPDATE=13;
+ 
+export const POST_DETAILS=14;
+export const POST_DETAILS_SUCCESS=15;
+export const POST_DETAILS_FAILURE=16;
+export const POST_DETAILS_UPDATE=17;

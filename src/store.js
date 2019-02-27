@@ -3,6 +3,7 @@ import {deviceListReducer} from './reducers/homeReducer';
 import {deviceDetailsReducer} from './reducers/deviceDetaislReducer';
 import { deviceReducer} from './reducers/deviceReducer';
 import {postPortRedcuer} from './reducers/postPortReducer';
+import {postDetailsReducer} from './reducers/configReduce';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
@@ -12,7 +13,8 @@ export const store=createStore(
         deviceList:deviceListReducer,
         deviceDetails:deviceDetailsReducer,
         deviceInfo: deviceReducer,
-        devicepostPORT:postPortRedcuer
+        devicepostPORT:postPortRedcuer,
+        deviceDetils:postDetailsReducer
     }),
     {
     deviceList:{deviceID:null,device:{},isLoading:false,error:null},
@@ -26,7 +28,17 @@ export const store=createStore(
         },
        data:null,
         valid:false
+    },
+    deviceDetails:{
+        form:{
+            devicename:'', mapper_filename:'' ,connection:'',message_format:''
+            ,adpater:'',com_port:'' ,parity:'' ,buad_rate:'' ,btye_size:'',
+            encoding:'',connected:'' ,stop_bits:'' , ip_address:'' ,mapper_file:'' ,host_ip:''
+        },
+        data:null,
+        vaild:false
     }
     },
-    composeWithDevTools ( applyMiddleware(logger,thunk))
+  
+    composeWithDevTools(applyMiddleware(logger,thunk))
 );

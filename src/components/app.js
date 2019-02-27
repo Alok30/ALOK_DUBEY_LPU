@@ -9,7 +9,7 @@ import portForm from '../containers/portdetails';
 import demo from './portdetails';
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import {browserHistory} from 'react-router';
-
+import config from '../containers/config';
 import portdetails from '../containers/portdetails';
 
 export default class app extends Component {
@@ -37,6 +37,7 @@ export default class app extends Component {
           </form> 
         </nav>
         <Switch>   
+        <Route path='/config' component={config}></Route>
         <Route path='/port' component={portdetails}></Route>
                       
              <Route path='/googleForm' component={portdetails}></Route>
@@ -51,7 +52,7 @@ export default class app extends Component {
              <Route path='/form' component={popUp}></Route>
              <Route path='/:setting' component={portForm}></Route>
 
-
+           
 
             
 

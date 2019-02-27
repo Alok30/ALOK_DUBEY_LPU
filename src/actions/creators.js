@@ -149,6 +149,47 @@ function postPortThunk(data){
 }
 
 
+function postDetails(data){
+    return {
+        type:Constants.POST_DETAILS,
+        payload:{
+            data:data
+        }
+    }
+}
+
+function postDetailsSuccess(data){
+    return {
+        type:Constants.POST_DETAILS_SUCCESS,
+        payload:{
+            data:data
+        }
+    }
+}
+function postDetailsFailure(error){
+    return{
+        type:Constants.POST_DETAILS_FAILURE,
+        payload:{
+            error:error
+        }
+    }
+}
+function postDetailsFormUpdate(form){
+    return{
+        type:Constants.POST_DETAILS_UPDATE,
+        payload:{
+            form:form
+        }
+    }
+}
+function postDetailsThunk(data){
+    return function(dispatch){
+        dispatch(postDetails(data))
+        deviceList.postDetails(data)
+        .then(data=>dispatch(postDetailsSuccess(data)))
+        .catch(error=>dispatch(postDetailsFailure(error)));
+    }
+}
 
 export {
 
@@ -167,7 +208,12 @@ export {
     postPortSuccess,
     postPortFailure,
     postPortUpdate,
-    postPortThunk
+    postPortThunk,
+    postDetails,
+    postDetailsSuccess,
+    postDetailsFailure,
+    postDetailsFormUpdate,
+    postDetailsThunk
 
   
     

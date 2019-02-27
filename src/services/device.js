@@ -1,4 +1,7 @@
 import axios from 'axios';
+
+var querystring = require('querystring');
+
 const baseURL = `http://localhost:8000/v1/api/list-host/`
 const detailURL = `http://localhost:8000/v1/api/list-devices`
 
@@ -26,31 +29,36 @@ export function getDeviceName(host_ip, device_name) {
 }
 export function postPort(form) {
     console.log('inside service  alok dubey', { ...form })
-    return axios.post(`http://localhost:8000/v1/api/add-host/`,{ ...form }, headers)
+    return axios.post(`http://localhost:8000/v1/api/add-host/`,
+    querystring.stringify({ 
+        ...form
+      })
+    
+    , headers)
         .then(response => response.data)
 }
 
-axios({
-          method: 'post',
-          url: 'http://localhost:8000/v1/api/add-host/',
+// axios({
+//           method: 'post',
+//           url: 'http://localhost:8000/v1/api/add-host/',
         
          
-            data: {
-                "port_no": "87",
-                "ip_address": "12.23.33.3",
-                "host_name": "passw"
-              },
+//             data: {
+//                 "port_no": "87",
+//                 "ip_address": "12.23.33.3",
+//                 "host_name": "passw"
+//               },
 
          
         
-          headers: { 
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Cache-Control": "no-cache",
-            "Postman-Token": "42e6c291-9a09-c29f-f28f-11872e2490a5"
-          }
-        }).then(function (response) {
-          console.log("Heade With Authentication :" + response);
-        });
+//           headers: { 
+//             "Content-Type": "application/x-www-form-urlencoded",
+//             "Cache-Control": "no-cache",
+//             "Postman-Token": "42e6c291-9a09-c29f-f28f-11872e2490a5"
+//           }
+//         }).then(function (response) {
+//           console.log("Heade With Authentication :" + response);
+//         });
       
     
 
@@ -82,3 +90,14 @@ axios({
 //     })
   
 //   }
+export function postDetails(form){
+    console.log('inside service  alok dubey post method for config', { ...form })
+    return axios.post(`http://localhost:8000/v1/api/add-device/`,
+    querystring.stringify({ 
+        ...form
+      })
+    
+    , headers)
+        .then(response => response.data)
+     
+}
