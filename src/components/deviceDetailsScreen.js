@@ -9,7 +9,7 @@ export default class deviceDetailsScreen extends Component {
  
   render() {
     let el;
-   console.log('props',this.props.deviceInfo.device.message)
+   console.log('props inside table alok++',this.props.deviceInfo.device)
 
    console.log('inside deviceDetails')
       switch(this.props.deviceInfo.isLoading){
@@ -36,6 +36,7 @@ export default class deviceDetailsScreen extends Component {
           </thead>
           <tbody>
             {
+            
               this.props.deviceInfo.device.status.map(device=>{
                 if(device._id)
                 {
@@ -47,6 +48,7 @@ export default class deviceDetailsScreen extends Component {
               <td></td>
               <td>{device.timestamp}</td>
               <td>{device.status}</td>
+              <td>host_ip{device.host_ip}</td>
             </tr>;
             }
           })

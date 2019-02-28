@@ -14,7 +14,7 @@ export const store=createStore(
         deviceDetails:deviceDetailsReducer,
         deviceInfo: deviceReducer,
         devicepostPORT:postPortRedcuer,
-        deviceDetils:postDetailsReducer
+        deviceDetailsPORT:postDetailsReducer
     }),
     {
     deviceList:{deviceID:null,device:{},isLoading:false,error:null},
@@ -29,7 +29,7 @@ export const store=createStore(
        data:null,
         valid:false
     },
-    deviceDetails:{
+    deviceDetailsPORT:{
         form:{
             devicename:'', mapper_filename:'' ,connection:'',message_format:''
             ,adpater:'',com_port:'' ,parity:'' ,buad_rate:'' ,btye_size:'',

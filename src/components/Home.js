@@ -11,11 +11,8 @@ import {
   FETCH_DATA_FAILURE
 } from '../actions/constants'
 export default class Home extends Component {
-
-
   render() {
-    
-
+    console.log('++',this.props.deviceList.device);
     let el;
     switch (this.props.deviceList.isLoading) {
       case FETCH_DATA:
@@ -25,84 +22,36 @@ export default class Home extends Component {
         break;
       case FETCH_DATA_SUCCESS:
         el = (
-
-
-
           <div className="container">
             <div className="row">
-
-
               {
-                this.props.deviceList.device.status.map(device => {
+                this.props.deviceList.device.data.map(device => {
                   if (device._id) {
-                    return(
-                    <div className="col-md-4 col-12 col-sm-6 card_color">
-
-
-                      <div className="card">
-                        <div className="card-body ">
-
-                          <i className="fa fa-arrow-right float-right text-success "></i>
-                          <h5 className="card-title font_color ">Host Name  {device.host_name}</h5>
-                          <h5 className="card-title font_color">Ip: {device.ip_address}</h5>
-                          <h5 className="card-title font_color">Port No:{device.port_no}</h5>
-                          <p className="float-right text-success font_color">
+                    return (
+                    
                        
-                            
-                          
-                         
-                                               
-                       <Link to={`/${device._id.$oid}`} component={DeviceLanding}>{device.host_name}</Link>
-                                                
-                        </p>
-                          <span> <p className="font_color">devices</p></span>
+                      <div className="col-md-4 col-12 col-sm-6 card_color">
+
+                        <div className="card">
+                          <div className="card-body mt-10">
+                            <i className="fa fa-arrow-right float-right text-success "></i>
+                            <h5 className="card-title font_color ">Host Name  {device.host_name}</h5>
+                            <h5 className="card-title font_color">Ip: {device.ip_address}</h5>
+                            <h5 className="card-title font_color">Port No:{device.port_no}</h5>
+                            <p className="float-right text-success font_color">
+                              <Link to={`/${device._id.$oid}`} component={DeviceLanding}>{device.host_name}</Link>
+                            </p>
+                            <span> <p className="font_color">devices</p></span>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    
                     )
                   }
                 })
               }
-
-
-
-
-              {/* <div className="col-md-4 col-12 col-sm-6 card_color">
-        
-           
-           <div className="card">
-            <div className="card-body ">
-               
-               <i className="fa fa-arrow-right float-right text-success "></i>
-               <h5 className="card-title font_color ">Host Name </h5>
-               <h5 className="card-title font_color">Ip:</h5>
-               <h5 className="card-title font_color">Port No:</h5>
-               <p className="float-right text-success font_color">connected</p>
-              <span> <p className="font_color">devices</p></span>
-             </div>
             </div>
           </div>
-          <div className="col-md-4 col-12 col-sm-6 card_color">
-          
-           
-           <div className="card">
-            <div className="card-body ">
-               
-               <i className="fa fa-arrow-right float-right text-success "></i>
-               <h5 className="card-title font_color ">Host Name </h5>
-               <h5 className="card-title font_color">Ip:</h5>
-               <h5 className="card-title font_color">Port No:</h5>
-               <a href="#" className="float-right text-success font_color">connected </a>
-              <span> <p className="font_color">devices</p></span>
-             </div>
-            </div> 
-        </div> */}
-            </div>
-
-
-
-          </div>
-
         )
         break;
       case FETCH_DATA_FAILURE:

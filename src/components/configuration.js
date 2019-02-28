@@ -3,7 +3,6 @@ import logo from './Add Copy.svg'
 import Remove from './Remove Copy.svg'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { postDetailsThunk, postDetailsFormUpdate } from '../actions/creators'
-import { encode } from 'punycode';
 export default class popup extends Component {
     constructor(props) {
         super(props);
@@ -29,7 +28,7 @@ export default class popup extends Component {
             , adpater, com_port, parity, buad_rate, btye_size,
             encoding, connected, stop_bits, ip_address, mapper_file, host_ip
 
-        } = this.props.deviceDetails.form
+        } = this.props. deviceDetailsPORT.form
         return device_name !== '' && mapper_filename !== '' && connection !== '' && message_format !== ''
             && adpater !== '' && com_port !== '' && parity !== '' && buad_rate !== '' && btye_size !== '' &&
             encoding !== '' && connected !== '' && stop_bits !== '' && ip_address !== '' && mapper_file !== '' && host_ip !== ''

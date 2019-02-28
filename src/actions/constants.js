@@ -20,3 +20,7 @@ export const POST_DETAILS=14;
 export const POST_DETAILS_SUCCESS=15;
 export const POST_DETAILS_FAILURE=16;
 export const POST_DETAILS_UPDATE=17;
+
+export const FETCH_DEVICE=18;
+export const FETCH_DEVICE_SUCCESS=19;
+export const FETCH_DEVICE_FAILURE=20;
