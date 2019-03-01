@@ -32,7 +32,7 @@ export default class Home extends Component {
                        
                       <div className="col-md-4 col-12 col-sm-6 ">
 
-                        <div className="card">
+                        <div className="card" style={{marginTop:'25px'}}>
                           <div className="card-body mt-10">
                             <i className="fa fa-arrow-right float-right text-success "></i>
                             <h5 className="card-title font_color">Host Name  {device.host_name}</h5>

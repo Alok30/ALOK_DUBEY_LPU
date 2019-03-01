@@ -14,6 +14,7 @@ import portdetails from '../containers/portdetails';
 import demo1 from './demo'
 import addUser from './addUser';
 import './app.css'
+import model from '../actions/model';
 import humanLogo from './humain logo@2x.png'
 export default class app extends Component {
 
@@ -38,6 +39,7 @@ export default class app extends Component {
 
           </nav>
         <Switch>
+          <Route path='/model'component={model}></Route>
           <Route path='/port' component={portdetails}></Route>
           <Route path='/config' component={config}></Route>
           <Route path='/home' exact component={Home} />

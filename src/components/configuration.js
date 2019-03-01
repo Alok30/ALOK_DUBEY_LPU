@@ -3,6 +3,34 @@ import logo from './Add Copy.svg'
 import Remove from './Remove Copy.svg'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { postDetailsThunk, postDetailsFormUpdate } from '../actions/creators'
+import {Link} from 'react-router-dom';
+const css_device_config={
+    width: "775px",
+    position: "relative",
+    left: "243px",
+    fontSize: "13px",
+    fontWeight: "bold",
+    boxShadow: "5px 10px 8px 10px #888888",
+    padding: "22px"
+}
+const header_device_config={
+    fontSize: "21px",
+    fontWeight: "bold"
+}
+const css_button_cancel={
+    position: "relative",
+    left: "45px"
+}
+const css_logo={
+    position: "relative",
+    top: "72px",
+    left: "38px"
+}
+const css_remove={
+    position: "relative",
+    left: "-33px",
+    top: "18px"
+}
 export default class popup extends Component {
     constructor(props) {
         super(props);
@@ -189,8 +217,8 @@ export default class popup extends Component {
         let oid = this.props.oid;
         return (
 
-            <form onSubmit={this.postForm}>
-                <h2>Device Configuration</h2>
+            <form onSubmit={this.postForm} style={css_device_config}>
+                <h2 style={header_device_config}>Device Configuration</h2>
                 <div className="row">
                     <div className="col-md-6">
                         <div class="form-group">
@@ -310,8 +338,8 @@ export default class popup extends Component {
                         <div class="form-group">
                             {/* <label for="exampleInputPassword1">Password</label> */}
                             <h2></h2>
-                            <img src={logo} />
-                            <img src={Remove} />
+                            <img src={logo} style={css_logo}/>
+                            <img src={Remove}  style={css_remove}/>
                         </div>
                     </div>
                 </div>
@@ -331,7 +359,7 @@ export default class popup extends Component {
                     <div className="col-md-3">
                         <div class="form-group">
 
-                            <img src={logo} />
+                            <img src={Remove}  />
                         </div>
                     </div>
                 </div>
@@ -339,10 +367,10 @@ export default class popup extends Component {
                     <div className="col-md-7">
                     </div>
                     <div className="col-md-2">
-                        {/* <button type="submit" style={{ width: '160px' }} class="btn btn-primary">Cancel</button> */}
+                         <Link to ='/home' type="submit" style={css_button_cancel} class="btn btn-danger">Cancel</Link> 
                     </div>
                     <div className="col-md-3">
-                        <button type="submit" style={{ height: '36px', width: '255px' }} class="btn btn-primary">Save Device</button>
+                        <button type="submit" className="btn btn-success btn-md">Save Device</button>
                     </div>
                 </div>
             </form>

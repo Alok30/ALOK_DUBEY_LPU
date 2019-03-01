@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
     POST_PORT_NUMBER,
@@ -9,6 +10,29 @@ import {
 
 import { postPortThunk, postPortUpdate } from '../actions/creators';
 
+const css_form={
+    width: "412px",
+    height: "292px",
+    position: "relative",
+    left: "380px"
+}
+const css_save_host={
+    position: "relative",
+    left: "285px",
+    width: "116px",
+    bottom: "37px"
+}
+const css_save_add_device={
+    position: "relative",
+    left: "46px",
+    top: "2px",
+    width: "168px"
+}
+const css_cancel={
+    width: "108px",
+    position: "relative",
+    top: "2px"
+}
 export default class portForm extends Component {
     constructor(props) {
         super(props);
@@ -67,29 +91,42 @@ export default class portForm extends Component {
     }
 
     componentDidMount() {
+        if(this.props.data!=null && this.props.data.data[0]!=null) {
         this.setState({
-            host_name: this.props.data.data[0].host_name ? this.props.data.data[0].host_name : '',
-            ip_address: this.props.data.data[0].ip_address ? this.props.data.data[0].ip_address : '',
-            port_no: this.props.data.data[0].port_no ? this.props.data.data[0].port_no : '',
+            host_name: this.props.data.data[0]? this.props.data.data[0].host_name : '',
+            ip_address: this.props.data.data[0] ? this.props.data.data[0].ip_address : '',
+            port_no: this.props.data.data[0] ? this.props.data.data[0].port_no : '',
             type: this.props.type === 'configureHost' ? this.props.type : '',
-            oid: this.props.oid ? this.props.oid : '',
+            oid: this.props.oid ? this.props.oid : ''
+        });
+    } else {
+        this.setState({
+            host_name: '',
+            ip_address: '',
+            port_no: '',
+            type: this.props.type === 'configureHost' ? this.props.type : '',
+            oid: this.props.oid ? this.props.oid : ''
         });
     }
+    }
     render() {
-        let defaultData = this.props.data.data[0];
-        console.log(defaultData)
-        console.log(this.props.oid);
+        let defaultData;
+        if(this.props.data!=null && this.props.data.data[0]!=null) {
+            defaultData = this.props.data.data[0];
+        } else {
+            defaultData = null;
+        }
         return (
-            <form onSubmit={this.postForm}>
+            <form onSubmit={this.postForm} style={css_form}>
                 <div className="form-group">
                     <label >Host Name</label>
-                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add a Number" defaultValue={this.props.type === 'configureHost' ? defaultData.host_name : ""} onChange={(e) => this.updateInput(e, 'number')} ref={this.host_nameInputRef} />
+                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add a Number" defaultValue={ defaultData !== null ? defaultData.host_name : ""} onChange={(e) => this.updateInput(e, 'number')} ref={this.host_nameInputRef} />
                 </div>
                 <div className="form-group">
                     <div className='row'>
                         <div className="col-md-8">
                             <label >IP Address</label>
-                            <input type="text" className="form-control" placeholder="Add  a IP" onChange={(e) => this.updateInput(e, 'ip')} ref={this.ip_addressInputRef} defaultValue={this.props.type === 'configureHost' ? defaultData.ip_address : ""} />
+                            <input type="text" className="form-control" placeholder="Add  a IP" onChange={(e) => this.updateInput(e, 'ip')} ref={this.ip_addressInputRef} defaultValue={defaultData !== null ? defaultData.ip_address : ""} />
                         </div>
                         <div className="col-md-4">
                             <label >Port Number</label>
@@ -99,14 +136,16 @@ export default class portForm extends Component {
                 </div>
                 <div className="row">
                     <div className="col-md-2">
-                        {/* <button type="submit" className="btn btn-primary">Cancel</button> */}
+                        <Link to='/home' type="submit" className="btn btn-primary btn-md" style={css_cancel}>
+                        Cancel</Link>
+                        
                     </div>
-                    <div className="col-md-7">
-                        {/* <button type="submit" className="btn btn-primary">Save & Host Device</button></div> */}
+                    <div className="col-md-6">
+                        <button type="submit" className="btn btn-primary btn-md" style={css_save_add_device} >Save & Add Device</button></div>
                     </div>
-                    <div className="col-md-3">
-                        <button type="submit" className="btn btn-primary"> Save Host</button></div>
-                </div>
+                    <div className="col-md-4">
+                        <button type="submit" className="btn btn-success btn-md" style={css_save_host} > Save Host</button></div>
+               
             </form>
         );
     }
