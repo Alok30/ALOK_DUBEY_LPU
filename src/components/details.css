@@ -1,0 +1,60 @@
+.rectangle {
+	height: 41px;
+	width: 1787px;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+}
+.barcode {
+	height: 14px;
+	width: 51px;
+	color: #888888;
+	font-family: Assistant;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 14px;
+}
+.parameter-id {
+	height: 14px;
+	width: 78px;
+	color: #888888;
+	font-family: Assistant;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 14px;
+}
+.parameter-mapping {
+	height: 14px;
+	width: 116px;
+	color: #888888;
+	font-family: Assistant;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 14px;
+}
+.value {
+	height: 14px;
+	width: 35px;
+	color: #888888;
+	font-family: Assistant;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 14px;
+}
+.timestamp {
+	height: 14px;
+	width: 63px;
+	color: #888888;
+	font-family: Assistant;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 14px;
+}
+.status {
+	height: 14px;
+	width: 42px;
+	color: #888888;
+	font-family: Assistant;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 14px;
+}

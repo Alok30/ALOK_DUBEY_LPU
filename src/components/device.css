@@ -1,0 +1,7 @@
+.rectangle {
+	height: 162px;
+	width: 582px;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	box-shadow: 0 2px 12px -4px rgba(105,117,126,0.12);
+}

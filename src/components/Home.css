@@ -18,3 +18,30 @@
  
 
 }
+
+
+.connected {
+	height: 22px;
+	width: 85px;
+	color: #2CB446;
+	font-family: Assistant;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 22px;
+}
+
+
+.ip-192-39-19-301-po {	height: 52px;	width: 111px;	
+    color: #232F37;	font-family: Assistant;	font-size: 16px;
+        line-height: 26px;}
+        
+
+        .host-name {
+            height: 24px;
+            width: 96px;
+            color: #232F37;
+            font-family: Assistant;
+            font-size: 20px;
+            font-weight: bold;
+            /* line-height: 24px; */
+        }
