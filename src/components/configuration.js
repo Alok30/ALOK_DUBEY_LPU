@@ -22,8 +22,8 @@ export default class popup extends Component {
             port_no: undefined,
             stop_bits: undefined,
             type: '',
-            message_format: undefined
-
+            message_format: undefined,
+            mapper_data: undefined
         }
         this.devicenameInputRef = React.createRef();
         this.mapper_filenameInputRef = React.createRef();
@@ -43,53 +43,51 @@ export default class popup extends Component {
     }
 
     componentDidMount () {
-    
         this.setState({
             id: this.props.oid,
+            device_name: this.props.deviceResponse ? this.props.deviceResponse.device_name : '',
+            mapper_file: this.props.deviceResponse ? this.props.deviceResponse.data.mapper_file : '',
             adapter: this.props.deviceResponse ? this.props.deviceResponse.data.adapter : '',
             baud_rate: this.props.deviceResponse ? this.props.deviceResponse.data.baud_rate : '',
             btye_size: this.props.deviceResponse ? this.props.deviceResponse.data.byte_size : '',
             com_port: this.props.deviceResponse ? this.props.deviceResponse.data.com_port : '',
             connection: this.props.deviceResponse ? this.props.deviceResponse.data.connection : '',
             encoding: this.props.deviceResponse ? this.props.deviceResponse.data.encoding : '',
-            device_name: this.props.deviceName ? this.props.deviceName : '',
+           
             message_format: this.props.deviceResponse ? this.props.deviceResponse.data.message_format : '',
             host_ip: this.props.deviceResponse ? this.props.deviceResponse.data.host_ip : '',
             ip_address: this.props.deviceResponse ? this.props.deviceResponse.data.ip_address : '',
-            mapper_file: this.props.deviceResponse ? this.props.deviceResponse.data.mapper_file : '',
-            parity: this.props.deviceResponse.data ? this.props.deviceResponse.data.parity : '',
-            port_no:this.props.deviceResponse.data ? this.props.deviceResponse.data.port_no : '',
+          
+            parity: this.props.deviceResponse ? this.props.deviceResponse.data.parity : '',
+            port_no:this.props.deviceResponse? this.props.deviceResponse.data.port_no : '',
             stop_bits: this.props.deviceResponse ? this.props.deviceResponse.data.stop_bits : '',
             type: this.props.type ? this.props.type : '',
             mapper_data: this.props.deviceResponse ? this.props.deviceResponse.data.mapper_data : ''
-
-
         });
     }
 
 
     validateForm() {
         const {
-            device_name, mapper_filename, connection, message_format
+            device_name, mapper_file, connection, message_format
             , adapter, com_port, parity, buad_rate, btye_size,
-            encoding, connected, stop_bits, ip_address, mapper_file, host_ip
+            encoding, connected, stop_bits, ip_address, mapper_filename, host_ip
 
         } = this.props. deviceDetailsPORT.form
-        return device_name !== '' && mapper_filename !== '' && connection !== '' && message_format !== ''
+        return device_name !== '' && mapper_filename!== '' && connection !== '' && message_format !== ''
             && adapter !== '' && com_port !== '' && parity !== '' && buad_rate !== '' && btye_size !== '' &&
             encoding !== '' && connected !== '' && stop_bits !== '' && ip_address !== '' && mapper_file !== '' && host_ip !== ''
     }
     updateInput = (event, type) => {
-        console.log("karthik", event.target.value+"  -->  "+ type);
         switch (type) {
             case "device":
                 this.setState({
-                    devicename: event.target.value
+                    device_name: event.target.value
                 });
                 break;
             case "mapper":
                 this.setState({
-                    mapper_filename: event.target.value
+                    mapper_file: event.target.value
                 })
                 break;
             case "connection":
@@ -114,7 +112,7 @@ export default class popup extends Component {
                 break;
             case "port":
                 this.setState({
-                    com_part: event.target.value
+                    com_port: event.target.value
                 })
                 break;
             case "com":
@@ -166,7 +164,6 @@ export default class popup extends Component {
         }
     }
     postForm = (event) => {
-        console.log("karthik", this.state);
         event.preventDefault();
         this.props.dispatch(postDetailsThunk({
             device_name: this.state.device_name,

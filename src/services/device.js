@@ -51,14 +51,14 @@ export function postPort(form) {
 
 
 export function postDetails(form) {
-    console.log('inside service  alok dubey post method for config', form.mapper_data);
-
+    form.mapper_data = JSON.stringify(form.mapper_data)
+    console.log(form.type)
+    console.log('alok++',form.oid)
     if(form.type === 'configureDevice') {
         return axios.put(`http://localhost:8000/v1/api/edit-device-details/${form.oid}/${form.device_name}/ `,
         querystring.stringify({
             ...form
         })
-
         , headers)
         .then(response => response.data)
     } else {

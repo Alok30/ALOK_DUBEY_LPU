@@ -22,15 +22,15 @@ export default class app extends Component {
 
     return (
       <div className="">
-        <nav className="navbar div_nav ">
+         <nav className="navbar div_nav ">
            <a className="navbar-brand " href="#">
             <img src={humanLogo} width="30" height="30" className="d-inline-block align-top humain-logo" alt="" />
             <span className="device-management">Device Managment</span>
             </a>
-          <form className="form-inline ">
-            <Link to='/home' className="hosts-devices" type="submit">Host & Devices</Link>
-            <Link to='/Settings' className="settings">Settings</Link>
-            <Link to='/port' className="add-new-host" >+ Add New Host</Link>
+          <form className="form-inline form_style">
+            <Link to='/home' className="hosts-devices css_button" >Host & Devices</Link>
+            <Link to='/addUser' className="settings ">Settings</Link>
+            <Link to='/port' className="add-new-host css_button1">+ Add New Host</Link>
           
           </form>
          
@@ -38,15 +38,14 @@ export default class app extends Component {
 
           </nav>
         <Switch>
+          <Route path='/port' component={portdetails}></Route>
+          <Route path='/config' component={config}></Route>
           <Route path='/home' exact component={Home} />
           <Route path='/addUser' component={addUser}></Route>
-          <Route path='/config' component={config}></Route>
           <Route path='/:host_ip/:device_name' component={DetailsPage}></Route>
           <Route path='/:id' component={LandingPage}></Route>
-          <Route path='/port' component={portdetails}></Route>
-          <Route path='/form' component={popUp}></Route>
-          <Route path='/:setting' component={portForm}></Route>
           <Route path='/Settings' component={demo}></Route>
+          {/* <Route path='/form' component={popUp}></Route> */}
         </Switch>
       </div>
 

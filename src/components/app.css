@@ -1,62 +1,49 @@
-
-
-/* .navStyle{
-    color:black;
-    font: 100px;
- }
- .marginLeft{
-    margin-left: 86px;
- }
- .marginInBetween{
-    margin-left: 54px;
- }
- .styleLink:hover{
-    color:green !important;
-    background-color: white !important;
-    border-bottom: 3px solid green;
- } */
- .humain-logo {	height: 56px;	width: 33.74px;
+.humain-logo {  
+   height: 56px;    
+   width: 33.74px;
 }
-
-
+.css_button{
+   position: relative;
+   left: 290px;
+   border: none !important
+}
+.css_button1{
+   position: relative;
+   left: -250px
+}
  .device-management {
-	height: 34px;
-	width: 248px;
-	color: #50595E;
-	font-family: Assistant;
-	font-size: 28px;
-	font-weight: bold;
+    height: 34px;
+    width: 248px;
+    color: #50595E;
+    font-family: Assistant;
+    font-size: 28px;
+    font-weight: bold;
    line-height: 34px;
    margin-left: 40px;
  
 }
 .div_nav{
-      height: 90px;	
-      width: 1920px;	background-color: #FFFFFF;	box-shadow: 0 2px 12px -4px rgba(0,0,0,0.2);
+      height: 90px; 
+      width: 1920px;    background-color: #FFFFFF;  box-shadow: 0 2px 12px -4px rgba(0,0,0,0.2);
    }
 .hosts-devices {
-	height: 22px;
-	width: 124px;
-	color: #2CB446;
-	font-family: Assistant;
-	font-size: 18px;
-	font-weight: bold;
-	line-height: 22px;
+    height: 22px;
+    width: 124px;
+    color: #2CB446;
+    font-family: Assistant;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
    text-align: center;
    margin-right: 400px;
+   background: none;
 }
-
-
-.add-new-host {	height: 22px;	width: 123px;
-   	color: #50595E;	
-   font-family: Assistant;	font-size: 18px;	font-weight: bold;	
-   line-height: 22px;	text-align: center;
+.add-new-host { height: 22px;   width: 123px;
+    color: #50595E; 
+   font-family: Assistant;  font-size: 18px;    font-weight: bold;  
+   line-height: 22px;   text-align: center;
    margin-right: 300px;
 }
-
-
-
-
    .settings {
       height: 22px;
       width: 66px;
@@ -67,4 +54,8 @@
       line-height: 22px;
       text-align: center;
       margin-right:350px;
+   }
+   .form_style{
+      position: relative;
+      left: -120px;
    }

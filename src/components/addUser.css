@@ -5,19 +5,32 @@
  
  }
  .rectangle {
-	height: 332px;
-	width: 410px;
-	border-radius: 4px;
-	background-color: #FFFFFF;
+    height: 332px;
+    width: 410px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
     box-shadow: 0 2px 12px -4px rgba(105,117,126,0.12);
     margin-top: 80px;
 }
-
-.rectangle1 {
-	height: 214px;
-	width: 410px;
-	border-radius: 4px;
-	background-color: #FFFFFF;
+/* .rectangle1 {
+    height: 214px;
+    width: 410px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
     box-shadow: 0 2px 12px -4px rgba(105,117,126,0.12);
     margin-top: 50px;
+} */
+.css_conatiner{
+    width: 610px;
+    height: 220px;
+    margin-left: 250px;
+    margin-top: 26px;
+    
+}
+.css_form{
+    width: 270px;
+    border: 2px solid black
+}
+.css_card{
+    width: 300px ;   
 }

@@ -35,13 +35,13 @@ export default class Home extends Component {
                         <div className="card">
                           <div className="card-body mt-10">
                             <i className="fa fa-arrow-right float-right text-success "></i>
-                            <h5 className="card-title font_color host-name">Host Name  {device.host_name}</h5>
-                            <h5 className="card-title font_color ip-192-39-19-301-po">Ip: {device.ip_address}</h5>
-                            <h5 className="card-title font_color ip-192-39-19-301-po">Port No:{device.port_no}</h5>
-                            <p className="float-right text-success font_color">
-                              <Link to={`/${device._id.$oid}`} component={DeviceLanding}>{device.host_name}</Link>
-                            </p>
-                            <span> <p className="font_color">devices</p></span><button>connected</button>
+                            <h5 className="card-title font_color">Host Name  {device.host_name}</h5>
+                            <h5 className="card-title font_coloro">Ip: {device.ip_address}</h5>
+                            <h5 className="card-title font_color">Port No:{device.port_no}</h5>
+                            <Link to={`/${device._id.$oid}`} className="float-right" component={DeviceLanding}>connected</Link>
+
+                            <p className="font_color">devices</p>
+                          
                           </div>
                         </div>
                       </div>

@@ -23,10 +23,10 @@ export default class portForm extends Component {
             oid: ''
         }
     }
-    validateForm() {
-        const { host_name, ip_address, port_no } = this.props.devicepostPORT.form;
-        return host_name !== '' && ip_address !== '' && port_no !== '';
-    }
+    // validateForm() {
+    //     const { host_name, ip_address, port_no } = this.props.devicepostPORT.form;
+    //     return host_name !== '' && ip_address !== '' && port_no !== '';
+    // }
     updateInput = (event, type) => {
         switch (type) {
             case "port":
@@ -66,36 +66,34 @@ export default class portForm extends Component {
         }));
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.setState({
-            host_name: this.props.data.data[0].host_name ? this.props.data.data[0].host_name: '',
+            host_name: this.props.data.data[0].host_name ? this.props.data.data[0].host_name : '',
             ip_address: this.props.data.data[0].ip_address ? this.props.data.data[0].ip_address : '',
             port_no: this.props.data.data[0].port_no ? this.props.data.data[0].port_no : '',
-            type: this.props.type  ==='configureHost' ?  this.props.type : '',
+            type: this.props.type === 'configureHost' ? this.props.type : '',
             oid: this.props.oid ? this.props.oid : '',
-
         });
     }
     render() {
         let defaultData = this.props.data.data[0];
-
+        console.log(defaultData)
         console.log(this.props.oid);
         return (
             <form onSubmit={this.postForm}>
                 <div className="form-group">
                     <label >Host Name</label>
-        
-                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add a Number" defaultValue={this.props.type === 'configureHost' ? defaultData.host_name: ""} onChange={(e) => this.updateInput(e, 'number')} ref={this.host_nameInputRef} />
+                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add a Number" defaultValue={this.props.type === 'configureHost' ? defaultData.host_name : ""} onChange={(e) => this.updateInput(e, 'number')} ref={this.host_nameInputRef} />
                 </div>
                 <div className="form-group">
                     <div className='row'>
                         <div className="col-md-8">
                             <label >IP Address</label>
-                            <input type="text" className="form-control" placeholder="Add  a IP" onChange={(e) => this.updateInput(e, 'ip')} ref={this.ip_addressInputRef} defaultValue={this.props.type === 'configureHost' ? defaultData.ip_address:""}  />
+                            <input type="text" className="form-control" placeholder="Add  a IP" onChange={(e) => this.updateInput(e, 'ip')} ref={this.ip_addressInputRef} defaultValue={this.props.type === 'configureHost' ? defaultData.ip_address : ""} />
                         </div>
                         <div className="col-md-4">
                             <label >Port Number</label>
-                            <input type="text" className="form-control" placeholder="Type" onChange={(e) => this.updateInput(e, 'port')} ref={this.port_noInputRef} defaultValue={this.props.type ==='configureHost' ? defaultData.port_no:""}/>
+                            <input type="text" className="form-control" placeholder="Type" onChange={(e) => this.updateInput(e, 'port')} ref={this.port_noInputRef} defaultValue={this.props.type === 'configureHost' ? defaultData.port_no : ""} />
                         </div>
                     </div>
                 </div>

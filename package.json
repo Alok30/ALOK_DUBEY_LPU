@@ -9,6 +9,7 @@
     "qs": "^6.6.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
+    "react-popup": "^0.10.0",
     "react-redux": "^6.0.1",
     "react-redux-router": "0.0.14",
     "react-router": "^4.3.1",
