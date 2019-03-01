@@ -30,15 +30,15 @@ export default class Home extends Component {
                     return (
                     
                        
-                      <div className="col-md-4 col-12 col-sm-6 ">
+                      <div className="col-md-4 col-12 col-sm-6 " >
 
                         <div className="card" style={{marginTop:'25px'}}>
                           <div className="card-body mt-10">
                             <i className="fa fa-arrow-right float-right text-success "></i>
-                            <h5 className="card-title font_color">Host Name  {device.host_name}</h5>
-                            <h5 className="card-title font_coloro">Ip: {device.ip_address}</h5>
-                            <h5 className="card-title font_color">Port No:{device.port_no}</h5>
-                            <Link to={`/${device._id.$oid}`} className="float-right" component={DeviceLanding}>connected</Link>
+                            <h5 className="card-title font_color text-dark"><b>Host Name {device.host_name}</b></h5>
+                            <h5 className="card-title font_color text-dark"><b>IP:</b> {device.ip_address}</h5>
+                            <h5 className="card-title font_color text-dark"><b>Port No:</b>{device.port_no}</h5>
+                            <Link to={`/${device._id.$oid}`} className="float-right text-success" component={DeviceLanding}  ><i class="fa fa-circle"></i> connected</Link>
 
                             <p className="font_color">devices</p>
                           

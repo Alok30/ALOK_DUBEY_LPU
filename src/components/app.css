@@ -31,7 +31,7 @@
     width: 124px;
     color: #2CB446;
     font-family: Assistant;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     line-height: 22px;
    text-align: center;
@@ -40,8 +40,11 @@
 }
 .add-new-host { height: 22px;   width: 123px;
     color: #50595E; 
-   font-family: Assistant;  font-size: 18px;    font-weight: bold;  
-   line-height: 22px;   text-align: center;
+   font-family: Assistant;  
+   font-size: 14px;    
+   font-weight: bold;  
+   line-height: 22px;   
+   text-align: center;
    margin-right: 300px;
 }
    .settings {
@@ -49,7 +52,7 @@
       width: 66px;
       color: #50595E;
       font-family: Assistant;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: bold;
       line-height: 22px;
       text-align: center;
@@ -58,4 +61,5 @@
    .form_style{
       position: relative;
       left: -120px;
+      font-size: 15px
    }

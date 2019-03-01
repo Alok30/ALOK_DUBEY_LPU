@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button, Modal } from 'react-bootstrap';
 import './app.css'
 import {
   FETCH_DEVICE_NAME,
@@ -10,30 +11,52 @@ import {
 import { getDeviceNameThunk } from '../actions/creators'
 import axios from 'axios';
 import { throws } from 'assert';
-import {Link} from 'react-router-dom'
-import model from '../actions/model';
+import { Link } from 'react-router-dom'
+import model from './model';
 export default class deviceDetailsScreen extends Component {
+
+
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
+    this.state = {
+      show: false,
+    };
+  }
+
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
+  }
   getDeviceDetails = (id, name) => {
     console.log('$$$4', id)
     console.log('al;okip', name)
     axios.get(`http://localhost:8000/v1/api/retry-values/127.0.0.35/${id}/${name}/`).then(response => {
       this.setState({
         getDeviceDetails: response.data,
+        data: response.data
       })
     }).catch(error => {
       console.log(error);
     })
+    this.setState({ show: false });
   }
   render() {
-  
+
     let el;
     console.log('props inside table alok++', this.props.deviceInfo.device)
-    console.log('alok+++++ device',this.props.deviceInfo.device.data)
+    console.log('alok+++++ device', this.props.deviceInfo.device.data)
     // let allDevices = this.props.deviceDetails;
     // console.log('222',allDevices);
     let dataDeatils = this.props.deviceInfo.device
     let allDevices = this.props.deviceDetails;
-    console.log('alok inside details',allDevices);
+    console.log('alok inside details', allDevices);
     // console.log(dataDeatils)
     // console.log('alok',dataDeatils.data)
     //console.log(dataDeatils.data.device_name)
@@ -52,23 +75,23 @@ export default class deviceDetailsScreen extends Component {
 
           <div className="container-fluid">
             <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href="#">
-              <Link to='/home'>Home</Link>
-              </a></li>
-           
-              {/* <li className="breadcrumb-item active" aria-current="page">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item"><a href="#">
+                  <Link to='/home'>Home</Link>
+                </a></li>
+
+                {/* <li className="breadcrumb-item active" aria-current="page">
               <Link to={`/${:this.props.deviceInfo.device.data}`}></Link>
               host_name</li> */}
-               <li className="breadcrumb-item"><a href="#">
-                {/* <Link to={`/${this.props.deviceInfo.device.data. device._id.$oid}`} >Home</Link> */}
+                <li className="breadcrumb-item"><a href="#">
+                  {/* <Link to={`/${this.props.deviceInfo.device.data. device._id.$oid}`} >Home</Link> */}
                 </a></li>
-              <li className="breadcrumb-item active" aria-current="page"><a href="#">host_name</a></li>
-             
-              {/* <li className="breadcrumb-item active" aria-current="page">{allDevices.host_name}</li> */}
-            </ol>
-         
-            {/* <div>{allDevices.host_name}</div>
+                <li className="breadcrumb-item active" aria-current="page"><a href="#">host_name</a></li>
+
+                {/* <li className="breadcrumb-item active" aria-current="page">{allDevices.host_name}</li> */}
+              </ol>
+
+              {/* <div>{allDevices.host_name}</div>
             <span>IP: {allDevices.ip_address}</span>
             <span style={{ "font-weight": "bold" }}>.</span>
             <span> Port No: {allDevices.port_no}</span>
@@ -79,16 +102,16 @@ export default class deviceDetailsScreen extends Component {
 
               <button type="button" className="btn btn-success" onClick={() => this.handlePopUp(allDevices._id.$oid)} >+ Add New Device</button> */}
 
-          </nav>
+            </nav>
             <div className>
-            <button type="button" className="btn btn-primary pull-right" onClick={() => this.getHostDetails(allDevices._id.$oid)} > Configure Host</button>
-            <button type="button" className="btn btn-success pull-right" onClick={() => this.handlePopUp(allDevices._id.$oid)} >+ Add New Device</button>
-            <h3>Device Name</h3> 
+              <button type="button" className="btn btn-primary pull-right" onClick={() => this.getHostDetails(allDevices._id.$oid)} > Configure Host</button>
+              <button type="button" className="btn btn-success pull-right" onClick={() => this.handlePopUp(allDevices._id.$oid)} >+ Add New Device</button>
+              <h3>Device Name</h3>
             </div>
-            <div className="row " style={{marginTop:'40px'}}>
-      
-    
-                    
+            <div className="row " style={{ marginTop: '40px' }}>
+
+
+
               <div className="col col-2">
                 BARCODE
               </div>
@@ -114,31 +137,85 @@ export default class deviceDetailsScreen extends Component {
                   return <div>
                     {
                       device.results.map(parameter => {
-                        return <div className="row" style={{marginTop:'10px'}}>
+                        return <div className="row" style={{ marginTop: '10px' }}>
                           <div className="col col-2">
                             {device.specimen_id}
-                        </div>
+                          </div>
                           <div className="col col-2">
-                          {parameter.parameter_mapping}
-                        </div>
+                          {parameter.parameter_name}
+                          
+                         
+                          </div>
                           <div className="col col-2">
-                          {/* <Link to={`/${parameter.parameter_result}`} component={parameter.parameter_result}> {parameter.parameter_name}</Link> */}
-                        </div>
+                            {/* <Link to={`/${parameter.parameter_result}`} component={parameter.parameter_result}> {parameter.parameter_name}</Link> */}
+                            <button variant="primary"
+                             onClick={this.handleShow}>
+                            {parameter.parameter_mapping}   </button>
+                          </div>
                           <div className="col col-2">
-                        {parameter.parameter_result}
-                        </div>
+                            {/* {parameter.parameter_result} */}
+                            {parameter.parameter_result}
+                            
+                          </div>
                           <div className="col col-2">
-                          {device.timestamp}
-                        </div>
+                            {device.timestamp}
+                          </div>
                           <div className="col col-2">
-                          {device.status}
-                        </div>
-                        <hr/>
-                        <button type="button" className="btn btn-success" onClick={() => this.getDeviceDetails(device.device_id, device._id.$oid)} >Configure Device</button>
-                       <model/>
+                            {device.status}
+                          </div>
+                          <hr />
+                          {<model data={this.state.data} />}
+                          {/* <button type="button" className="btn btn-success" onClick={() => this.getDeviceDetails(device.device_id, device._id.$oid)} >
+
+
+                            Configure Device</button> */}
+                          <>
+                           
+
+                            <Modal show={this.state.show} onHide={this.handleClose}>
+                              <Modal.Header closeButton>
+                                <Modal.Title>BARCODE<br/>
+                                  {device.specimen_id}
+                                </Modal.Title>
+                              </Modal.Header>
+                              <Modal.Body> {parameter.parameter_name}
+                              {parameter.parameter_mapping}
+                              </Modal.Body>
+                              <Modal.Body>
+                              Value:  { parameter.parameter_result}
+                              </Modal.Body>
+                              <Modal.Body>
+                             Timestamp   { device.timestamp}
+                              </Modal.Body>
+                              <Modal.Body>
+
+                              No of Trials:  { device.tries}
+                              </Modal.Body>
+                              <Modal.Body>
+                              Message Recived 
+                                { 
+
+                                  device.messages.map(messages=>{
+                                  return   <Modal.Body>
+                               { messages}
+                                </Modal.Body>
+                                  })
+                                }
+                              </Modal.Body>
+                              <Modal.Footer>
+                                <Button variant="secondary" onClick={this.handleClose}>
+                               close
+                            </Button>
+                                <Button variant="primary"  onClick={() => this.getDeviceDetails(device.device_id, device._id.$oid)}>
+                                  Save Changes
+                              
+                              </Button>
+                              </Modal.Footer>
+                            </Modal>
+                          </>
                         </div>
 
-                       
+
                       })
                     }
                   </div>
