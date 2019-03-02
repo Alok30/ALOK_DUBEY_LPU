@@ -1,0 +1,70 @@
+ <>
+                           
+
+                           <Modal show={this.state.show} onHide={this.handleClose}>
+                             <Modal.Header closeButton>
+                               <Modal.Title>BARCODE<br/>
+                                
+                               </Modal.Title>
+                             </Modal.Header>
+                             <Modal.Body>
+                            
+                             </Modal.Body>
+                             <Modal.Body>
+                             Value:  
+                             </Modal.Body>
+                             <Modal.Body>
+                            Timestamp   
+                             </Modal.Body>
+                             <Modal.Body>
+
+                             No of Trials
+                             </Modal.Body>
+                        
+                            
+                             <Modal.Footer>
+                               <Button variant="secondary" onClick={this.handleClose}>
+                              close
+                           </Button>
+                               
+                             
+                      
+                             </Modal.Footer>
+                           </Modal>
+                         </>
+
+
+
+
+                          <form onSubmit={this.postForm} style={css_form}>
+              
+                <div className="form-group">
+                    <label >Host Name</label>
+                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add a Number" defaultValue={ defaultData !== null ? defaultData.host_name : ""} onChange={(e) => this.updateInput(e, 'number')} ref={this.host_nameInputRef} />
+                </div>
+                <div className="form-group">
+                    <div className='row'>
+                        <div className="col-md-8">
+                            <label >IP Address</label>
+                            <input type="text" className="form-control" placeholder="Add  a IP" onChange={(e) => this.updateInput(e, 'ip')} ref={this.ip_addressInputRef} defaultValue={defaultData !== null ? defaultData.ip_address : ""} />
+                        </div>
+                        <div className="col-md-4">
+                            <label >Port Number</label>
+                            <input type="text" className="form-control" placeholder="Type" onChange={(e) => this.updateInput(e, 'port')} ref={this.port_noInputRef} defaultValue={this.props.type === 'configureHost' ? defaultData.port_no : ""} />
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-2">
+                        <Link to='/home' type="submit" className="btn btn-primary btn-md" style={css_cancel}>
+                        Cancel</Link>
+                        
+                    </div>
+                    <div className="col-md-6">
+                        <button type="submit" className="btn btn-primary btn-md" style={css_save_add_device} >Save & Add Device</button></div>
+                    </div>
+                    <div className="col-md-4">
+                        <button type="submit" className="btn btn-success btn-md" style={css_save_host} > Save Host</button></div>
+                        
+            </form>
+                 

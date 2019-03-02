@@ -4,6 +4,7 @@ import Remove from './Remove Copy.svg'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { postDetailsThunk, postDetailsFormUpdate } from '../actions/creators'
 import {Link} from 'react-router-dom';
+import {Button} from 'react-bootstrap'
 const css_device_config={
     width: "775px",
     position: "relative",
@@ -32,8 +33,9 @@ const css_remove={
     top: "18px"
 }
 export default class popup extends Component {
-    constructor(props) {
-        super(props);
+    constructor(props,context) {
+        super(props,context);
+        this.handleClose = this.handleClose.bind(this);
         this.state = {
             id: undefined,
             adapter: undefined,
@@ -51,7 +53,8 @@ export default class popup extends Component {
             stop_bits: undefined,
             type: '',
             message_format: undefined,
-            mapper_data: undefined
+            mapper_data: undefined,
+            show:false
         }
         this.devicenameInputRef = React.createRef();
         this.mapper_filenameInputRef = React.createRef();
@@ -70,6 +73,11 @@ export default class popup extends Component {
         this.host_ip = React.createRef();
     }
 
+    handleClose() {
+        this.setState({ show: false });
+        console.log('@@')
+        console.log(this.state.show)
+      }
     componentDidMount () {
         this.setState({
             id: this.props.oid,
@@ -217,7 +225,7 @@ export default class popup extends Component {
         let oid = this.props.oid;
         return (
 
-            <form onSubmit={this.postForm} style={css_device_config}>
+            <form onSubmit={this.postForm} style={css_device_config} onHide={this.handleClose}>
                 <h2 style={header_device_config}>Device Configuration</h2>
                 <div className="row">
                     <div className="col-md-6">
@@ -367,7 +375,10 @@ export default class popup extends Component {
                     <div className="col-md-7">
                     </div>
                     <div className="col-md-2">
-                         <Link to ='/home' type="submit" style={css_button_cancel} class="btn btn-danger">Cancel</Link> 
+                    <Button variant="secondary" onClick={this.handleClose}>
+                Close
+              </Button>
+                         {/* <Link to ='/home' type="submit" style={css_button_cancel} class="btn btn-danger">Cancel</Link>  */}
                     </div>
                     <div className="col-md-3">
                         <button type="submit" className="btn btn-success btn-md">Save Device</button>
